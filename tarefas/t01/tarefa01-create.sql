@@ -1,6 +1,6 @@
 CREATE TABLE funcionario (
-  codigo INTEGER NOT NULL,
-  nome VARCHAR(15) NOT NULL,
+  codigo SERIAL,
+  nome VARCHAR(15) DEFAULT NULL,
   sexo CHAR(1) DEFAULT NULL,
   dataNasc DATE DEFAULT NULL,
   salario DECIMAL(10,2) DEFAULT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE funcionario (
 
 
 CREATE TABLE departamento (
-  codigo SERIAL NOT NULL,
+  codigo SERIAL,
   descricao VARCHAR(20),
   cod_gerente INTEGER DEFAULT NULL,
   PRIMARY KEY (codigo),
@@ -19,7 +19,7 @@ CREATE TABLE departamento (
 
 
 CREATE TABLE projeto (
-  codigo SERIAL NOT NULL,
+  codigo SERIAL,
   nome VARCHAR(45) DEFAULT NULL,
   descricao VARCHAR(45) DEFAULT NULL,
   cod_depto INTEGER DEFAULT NULL,
@@ -32,7 +32,7 @@ CREATE TABLE projeto (
 
 
 CREATE TABLE atividade (
-  codigo SERIAL NOT NULL,
+  codigo SERIAL,
   nome VARCHAR(45) DEFAULT NULL,
   descricao VARCHAR(45) DEFAULT NULL,
   cod_responsavel INTEGER DEFAULT NULL,
@@ -43,16 +43,8 @@ CREATE TABLE atividade (
 );
 
 CREATE TABLE atividade_projeto (
-   cod_atividade INTEGER NOT NULL,
-   cod_projeto INTEGER NOT NULL,
+   cod_atividade INT,
+   cod_projeto INT,
    FOREIGN KEY(cod_atividade) REFERENCES atividade(codigo),
    FOREIGN KEY(cod_projeto) REFERENCES projeto(codigo)
 );
- 
-ALTER TABLE funcionario ADD CONSTRAINT fk_dep FOREIGN KEY(cod_depto) REFERENCES departamento(codigo);
-
-  
-
-
-
-
