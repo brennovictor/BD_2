@@ -1,9 +1,9 @@
 INSERT INTO funcionario VALUES 
-	(1, 'fulano1',  'm', '2000-01-01', 2000, DEFAULT),
-	(2, 'fulano2', 'f', '2000-01-02', 3000, DEFAULT),
-	(3, 'fulano3',  'm', '2000-01-03', 4000, DEFAULT),
-	(4, 'fulano4',  'f', '2000-01-04', 5000, DEFAULT),
-	(5, 'fulano5', 'm', '2000-01-05', 6000, DEFAULT);
+	(1, 'fulano1',  'm', '2000-01-01', 2000, 1),
+	(2, 'fulano2', 'f', '2000-01-02', 3000, 2),
+	(3, 'fulano3',  'm', '2000-01-03', 4000, 5),
+	(4, 'fulano4',  'f', '2000-01-04', 5000, 1),
+	(5, 'fulano5', 'm', '2000-01-05', 6000, 4);
 
 
 INSERT INTO departamento VALUES
