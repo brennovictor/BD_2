@@ -6,7 +6,8 @@ CREATE FUNCTION soma_milhas_cliente()
 RETURNS trigger AS $$
 BEGIN
     UPDATE milhas 
-    SET quantidade = quantidade + (SELECT distancia FROM voo WHERE codigo = (SELECT voo FROM cliente_voo))
+    SET quantidade = quantidade + (SELECT distancia FROM voo WHERE codigo = (SELECT voo FROM cliente_voo))/10
+    /* SET quantidade = quantidade + (SELECT distancia FROM voo, cliente_voo WHERE NEW.voo = voo.codigo)/10 */
     WHERE cliente = NEW.cliente;
     RETURN NEW;
 END;
